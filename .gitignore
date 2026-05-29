@@ -1,0 +1,47 @@
+# ── Go ────────────────────────────────────────────────────────────────────────
+# Binaries (root-level agent binary and any bin/ output dirs)
+/cmd
+**/bin/
+*.exe
+*.exe~
+
+# Test & coverage
+*.test
+*.out
+coverage.html
+coverage.txt
+
+# Go workspace local overrides (go.work.sum is committed; local sum is not)
+go.work.local
+
+# ── Protobuf generated code (optional — uncomment if you prefer to regenerate)
+# proto/gen/
+
+# ── Environment & secrets ─────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+
+# ── Docker ────────────────────────────────────────────────────────────────────
+.docker-data/
+docker-compose.override.yml
+
+# ── OS ────────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── IDEs ─────────────────────────────────────────────────────────────────────
+.idea/
+.vscode/
+!.vscode/extensions.json
+*.swp
+*.swo
+*~
+
+# ── Misc ─────────────────────────────────────────────────────────────────────
+*.log
+tmp/
