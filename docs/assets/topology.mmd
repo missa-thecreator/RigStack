@@ -1,0 +1,18 @@
+flowchart TB
+    subgraph REGION["Region home-1"]
+        subgraph VPCG["VPC vpc-xxxx · 10.0.0.0/16 (single-AZ por padrão na v1)"]
+            subgraph AZA["AZ home-1a = node-1"]
+                SUBA["Subnet subnet-aaa<br/>10.0.1.0/24 (bridge)"]
+                I1["i-0a1"]
+                I2["i-0a2"]
+                SUBA --> I1
+                SUBA --> I2
+            end
+            subgraph AZB["AZ home-1b = node-2"]
+                SUBB["Subnet subnet-bbb<br/>10.0.2.0/24 (bridge)"]
+                I3["i-0b1"]
+                SUBB --> I3
+            end
+        end
+    end
+    AZA -. cross-AZ privado = overlay VXLAN v3 .-> AZB

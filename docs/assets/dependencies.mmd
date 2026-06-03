@@ -1,0 +1,22 @@
+flowchart LR
+    subgraph V1["v1 — Fundação"]
+        F["Fundação: account_id · ARN · tags"]
+        SUBAZ["subnet = AZ"]
+        TAX["Taxonomia de ações"]
+        OBS["Estado observado"]
+    end
+    subgraph V2["v2 — Storage + IaC"]
+        PROV["Terraform provider"]
+        CUSTOM["Políticas custom + ABAC"]
+    end
+    subgraph V3["v3 — Plataforma"]
+        OVL["Overlay VXLAN"]
+        MAZ["ELB · RDS · EKS multi-AZ"]
+        MACC["Multi-conta"]
+    end
+    F --> PROV
+    F --> MACC
+    OBS --> PROV
+    TAX --> CUSTOM
+    SUBAZ --> OVL
+    OVL --> MAZ
