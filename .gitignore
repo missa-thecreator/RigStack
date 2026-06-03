@@ -45,3 +45,10 @@ desktop.ini
 # ── Misc ─────────────────────────────────────────────────────────────────────
 *.log
 tmp/
+
+# ── Generated plan artifacts (docs/) ──────────────────────────────────────────
+# Sources (.md, .mmd) and rendered PNGs are committed; these are regenerated via
+# docs/assets/render.sh + the Marp CLI. The PDF is published as a Release asset.
+docs/**/*.svg
+docs/**/*.pptx
+docs/aws-plan-slides.pdf

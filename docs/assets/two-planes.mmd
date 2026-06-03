@@ -1,0 +1,13 @@
+flowchart TB
+    FE["Frontend — Infraestrutura · Console de Nuvem"]
+    OP["Plano OPERADOR (não-AWS)<br/>operator:RegisterNode · operator:AssignAZ<br/>capacidade · regions · bootstrap"]
+    TEN["Plano TENANT (AWS-shaped)<br/>ec2:RunInstances · vpc:CreateSubnet<br/>iam:CreateUser"]
+    CTRL["Controller (Go) — binário único<br/>Auth compartilhada · REST + gRPC · Postgres"]
+    A1["Agent — AZ home-1a<br/>libvirt/KVM"]
+    A2["Agent — AZ home-1b<br/>libvirt/KVM"]
+    FE --> OP
+    FE --> TEN
+    OP --> CTRL
+    TEN --> CTRL
+    CTRL -->|gRPC preservado| A1
+    CTRL -->|gRPC preservado| A2
